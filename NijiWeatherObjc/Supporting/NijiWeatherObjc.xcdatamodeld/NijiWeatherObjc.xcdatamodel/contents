@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="NWACitieManagedObject" representedClassName="NWACitieManagedObject" syncable="YES">
+        <attribute name="citieName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="citiesALt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="citiesLong" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NWACountryManagedObject" inverseName="cities" inverseEntity="NWACountryManagedObject" syncable="YES"/>
+        <relationship name="stations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NWAStationManagedObject" inverseName="citie" inverseEntity="NWAStationManagedObject" syncable="YES"/>
+    </entity>
+    <entity name="NWACountryManagedObject" representedClassName="NWACountryManagedObject" syncable="YES">
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NWACitieManagedObject" inverseName="country" inverseEntity="NWACitieManagedObject" syncable="YES"/>
+    </entity>
+    <entity name="NWAStationManagedObject" representedClassName="NWAStationManagedObject" syncable="YES">
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <relationship name="citie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NWACitieManagedObject" inverseName="stations" inverseEntity="NWACitieManagedObject" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="NWACountryManagedObject" positionX="-495" positionY="-9" width="128" height="88"/>
+        <element name="NWACitieManagedObject" positionX="-288" positionY="77" width="128" height="118"/>
+        <element name="NWAStationManagedObject" positionX="-99" positionY="126" width="128" height="118"/>
+    </elements>
+</model>
